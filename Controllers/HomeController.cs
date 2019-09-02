@@ -37,12 +37,11 @@ namespace esercizioUnikey.Controllers
         {
             string areaRitorno = _homeRepository.RedirectToArea(formInput.Username, formInput.Password);
 
-            if (areaRitorno == "isPerson")
-                CreatedAtRoute("areaRoute", new { area = "AreaPersona" });
-            else if (areaRitorno == "isCompany")
-                RedirectToAction("areaRoute", new { area = "AreaAzienda" });
+            if (areaRitorno == "Persona")
+                return RedirectToRoute("areaRoute", new { area = "AreaPersona" });
 
-            return RedirectToRoute("Index", "Home");
+            return RedirectToRoute("areaRoute", new { area = "AreaAzienda" });
+
         }
     }
 }

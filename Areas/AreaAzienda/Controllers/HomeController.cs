@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace esercizioUnikey.Areas.AreaAzienda.Controllers
 {
-    [Area("AreaAzienda")]
+    [Area(areaName: "AreaAzienda")]
     public class HomeController:Controller
     {
         public IActionResult Index()

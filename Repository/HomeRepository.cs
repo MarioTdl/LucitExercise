@@ -22,7 +22,7 @@ namespace esercizioUnikey.Repository
 
             if (String.IsNullOrEmpty(areaRitorno))
                 areaRitorno = "isCompany";
-
+            
             return (areaRitorno == "isPerson") ? "Persona" : "Azienda";
 
         }
