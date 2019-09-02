@@ -9,11 +9,11 @@ namespace esercizioUnikey.Migrations
         {
             #region InsertCompany
             migrationBuilder.Sql(@"INSERT INTO Company(Email,Name,Password,Profile,DatadiFondazione,TechType) 
-                                    VALUES('provacompany@gmail.com','ProvaCompany1','password123'," + (int)ProfileType.isCompany + ",'2019-09-02'," + (int)TechType.DotNet + ")");
+                                    VALUES('provacompany1@gmail.com','ProvaCompany1','password123'," + (int)ProfileType.isCompany + ",'2019-09-02'," + (int)TechType.DotNet + ")");
             migrationBuilder.Sql(@"INSERT INTO Company(Email,Name,Password,Profile,DatadiFondazione,TechType) 
-                                    VALUES('provacompany@gmail.com','ProvaCompany2','password123'," +(int) ProfileType.isCompany + ",'2019-09-02'," + (int)TechType.Java + ")");
+                                    VALUES('provacompany2@gmail.com','ProvaCompany2','password123'," +(int) ProfileType.isCompany + ",'2019-09-02'," + (int)TechType.Java + ")");
             migrationBuilder.Sql(@"INSERT INTO Company(Email,Name,Password,Profile,DatadiFondazione,TechType) 
-                                    VALUES('provacompany@gmail.com','ProvaCompany3','password123'," +(int) ProfileType.isCompany + ",'2019-09-02'," +(int) TechType.Sql + ")");
+                                    VALUES('provacompany3@gmail.com','ProvaCompany3','password123'," +(int) ProfileType.isCompany + ",'2019-09-02'," +(int) TechType.Sql + ")");
             #endregion
 
             #region InsertDipendente
@@ -27,11 +27,11 @@ namespace esercizioUnikey.Migrations
 
             #region InsertPersona
              migrationBuilder.Sql(@"INSERT INTO Persona(Email,Name,Password,Profile,Indirizzo,Azienda)
-                                    VALUES('provacompany@gmail.com','ProvaPersona1','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva1','AziendaProva1')");
+                                    VALUES('provacompany1@gmail.com','ProvaPersona1','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva1','AziendaProva1')");
             migrationBuilder.Sql(@"INSERT INTO Persona(Email,Name,Password,Profile,Indirizzo,Azienda)
-                                    VALUES('provacompany@gmail.com','ProvaPersona2','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva2','AziendaProva2')");
+                                    VALUES('provacompany2@gmail.com','ProvaPersona2','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva2','AziendaProva2')");
             migrationBuilder.Sql(@"INSERT INTO Persona(Email,Name,Password,Profile,Indirizzo,Azienda)
-                                    VALUES('provacompany@gmail.com','ProvaPersona3','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva3','AziendaProva3')");
+                                    VALUES('provacompany3@gmail.com','ProvaPersona3','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva3','AziendaProva3')");
              #endregion
 
             #region InsertOrdine
