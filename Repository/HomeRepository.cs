@@ -15,14 +15,14 @@ namespace esercizioUnikey.Repository
 
         public string RedirectToArea(string email, string password)
         {
-            string areaRitorno = String.Empty;
+            string areaRitorno;
 
-            if (_context.Persone.Where(x => x.Email == email && x.Password == password) == null)
+            var persona = _context.Persone.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
+            if (persona != null)
                 areaRitorno = "isPerson";
-
-            if (String.IsNullOrEmpty(areaRitorno))
+            else
                 areaRitorno = "isCompany";
-            
+
             return (areaRitorno == "isPerson") ? "Persona" : "Azienda";
 
         }

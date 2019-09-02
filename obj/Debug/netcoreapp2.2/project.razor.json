@@ -2971,11 +2971,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\AreaPersona\\Views\\AreaPersona\\Index.cshtml",
-      "TargetPath": "Areas\\AreaPersona\\Views\\AreaPersona\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -3001,8 +2996,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\AreaAzienda\\Views\\AreaAzienda\\Index.cshtml",
-      "TargetPath": "Areas\\AreaAzienda\\Views\\AreaAzienda\\Index.cshtml",
+      "FilePath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Areas\\AreaAzienda\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\AreaAzienda\\Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
