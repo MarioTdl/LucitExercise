@@ -33,12 +33,16 @@ namespace esercizioUnikey.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public void Login(FormInput formInput)
+        public IActionResult Login(FormInput formInput)
         {
-            string areaRitorno=_homeRepository.RedirectToArea(formInput.Username, formInput.Password);
-            
-            if(areaRitorno=="")
+            string areaRitorno = _homeRepository.RedirectToArea(formInput.Username, formInput.Password);
 
+            if (areaRitorno == "isPerson")
+                CreatedAtRoute("areaRoute", new { area = "AreaPersona" });
+            else if (areaRitorno == "isCompany")
+                RedirectToAction("areaRoute", new { area = "AreaAzienda" });
+
+            return RedirectToRoute("Index", "Home");
         }
     }
 }

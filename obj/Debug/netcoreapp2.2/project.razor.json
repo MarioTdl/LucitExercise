@@ -2996,6 +2996,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Areas\\AreaAzienda\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\AreaAzienda\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"

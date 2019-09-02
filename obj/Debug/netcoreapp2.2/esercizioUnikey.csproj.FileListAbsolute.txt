@@ -28,3 +28,5 @@ C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.Views.pdb
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.dll
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.pdb
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.csproj.CopyComplete
+C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaAzienda\Views\AreaAzienda\Index.g.cshtml.cs
+C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\AreaPersona\Index.g.cshtml.cs
