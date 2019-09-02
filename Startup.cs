@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using esercizioUnikey.Core;
+﻿using esercizioUnikey.Core;
+using esercizioUnikey.Interfaccia;
+using esercizioUnikey.Repository;
+using esercizioUnikey.Repository.Interfaccia;
+using esercizioUnikey.Unit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +25,8 @@ namespace esercizioUnikey
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UOW>();
+            services.AddScoped<IHomeRepository, HomeRepository>();
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -33,12 +34,12 @@ namespace esercizioUnikey
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-             services.AddDbContext<DbContextUnikey>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<DbContextUnikey>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,DbContextUnikey db)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DbContextUnikey db)
         {
             if (env.IsDevelopment())
             {

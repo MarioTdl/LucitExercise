@@ -5,11 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using esercizioUnikey.Models;
+using esercizioUnikey.Controllers.Resource;
+using esercizioUnikey.Repository.Interfaccia;
 
 namespace esercizioUnikey.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IHomeRepository _homeRepository;
+        public HomeController(IHomeRepository homeRepository)
+        {
+            _homeRepository = homeRepository;
+        }
         public IActionResult Index()
         {
             return View();
@@ -24,6 +31,14 @@ namespace esercizioUnikey.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public void Login(FormInput formInput)
+        {
+            string areaRitorno=_homeRepository.RedirectToArea(formInput.Username, formInput.Password);
+            
+            if(areaRitorno=="")
+
         }
     }
 }

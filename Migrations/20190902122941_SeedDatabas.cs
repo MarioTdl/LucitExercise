@@ -27,11 +27,11 @@ namespace esercizioUnikey.Migrations
 
             #region InsertPersona
              migrationBuilder.Sql(@"INSERT INTO Persona(Email,Name,Password,Profile,Indirizzo,Azienda)
-                                    VALUES('provacompany1@gmail.com','ProvaPersona1','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva1','AziendaProva1')");
+                                    VALUES('provapersona1@gmail.com','ProvaPersona1','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva1','AziendaProva1')");
             migrationBuilder.Sql(@"INSERT INTO Persona(Email,Name,Password,Profile,Indirizzo,Azienda)
-                                    VALUES('provacompany2@gmail.com','ProvaPersona2','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva2','AziendaProva2')");
+                                    VALUES('provapersona2@gmail.com','ProvaPersona2','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva2','AziendaProva2')");
             migrationBuilder.Sql(@"INSERT INTO Persona(Email,Name,Password,Profile,Indirizzo,Azienda)
-                                    VALUES('provacompany3@gmail.com','ProvaPersona3','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva3','AziendaProva3')");
+                                    VALUES('provapersona3@gmail.com','ProvaPersona3','password123'," + (int)ProfileType.isPerson + ",'IndirizzoProva3','AziendaProva3')");
              #endregion
 
             #region InsertOrdine
