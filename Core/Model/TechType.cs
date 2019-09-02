@@ -1,7 +1,9 @@
-namespace esercizioUnikey.Core
+namespace esercizioUnikey.Core.Model
 {
     public enum TechType
     {
-        DotNet, Java, Sql
+        DotNet = 0,
+        Java = 1,
+        Sql = 2
     }
 }

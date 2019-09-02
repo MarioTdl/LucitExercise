@@ -2,6 +2,7 @@ namespace esercizioUnikey.Core.Model
 {
     public enum ProfileType
     {
-        isPerson,isCompany
+        isPerson = 0,
+        isCompany = 1
     }
 }
