@@ -1,7 +1,9 @@
+using esercizioUnikey.Controllers.Resource;
+
 namespace esercizioUnikey.Repository.Interfaccia
 {
     public interface IHomeRepository
     {
-        string RedirectToArea(string email, string password);
+        KeyValueResource RedirectToArea(string email, string password);
     }
 }

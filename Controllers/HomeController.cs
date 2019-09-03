@@ -35,12 +35,12 @@ namespace esercizioUnikey.Controllers
 
         public IActionResult Login(FormInput formInput)
         {
-            string areaRitorno = _homeRepository.RedirectToArea(formInput.Username, formInput.Password);
+            KeyValueResource areaRitorno = _homeRepository.RedirectToArea(formInput.Username, formInput.Password);
 
-            if (areaRitorno == "Persona")
-                return RedirectToRoute("areaRoute", new { area = "AreaPersona" });
+            if (areaRitorno.areaRitorno == "Persona")
+                return RedirectToRoute("areaRoute", new { area = "AreaPersona", id = areaRitorno.id });
 
-            return RedirectToRoute("areaRoute", new { area = "AreaAzienda" });
+            return RedirectToRoute("areaRoute", new { area = "AreaAzienda", id = areaRitorno.id });
 
         }
     }

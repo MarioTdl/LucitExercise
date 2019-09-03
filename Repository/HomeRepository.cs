@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using esercizioUnikey.Controllers.Resource;
 using esercizioUnikey.Core;
 using esercizioUnikey.Repository.Interfaccia;
 
@@ -13,18 +14,16 @@ namespace esercizioUnikey.Repository
             _context = context;
         }
 
-        public string RedirectToArea(string email, string password)
+        public KeyValueResource RedirectToArea(string email, string password)
         {
-            string areaRitorno;
+            KeyValueResource ritorno;
 
-            var persona = _context.Persone.Where(x => x.Email == email && x.Password == password).FirstOrDefault();
-            if (persona != null)
-                areaRitorno = "isPerson";
+            if (_context.Persone.Where(x => x.Email == email && x.Password == password).FirstOrDefault() != null)
+                ritorno = new KeyValueResource { id = _context.Persone.Where(x => x.Email == email && x.Password == password).FirstOrDefault().Id, areaRitorno = "Persona" };
             else
-                areaRitorno = "isCompany";
+                ritorno = new KeyValueResource { id = _context.Aziende.Where(x => x.Email == email && x.Password == password).FirstOrDefault().Id, areaRitorno = "Azienda" };
 
-            return (areaRitorno == "isPerson") ? "Persona" : "Azienda";
-
+            return ritorno;
         }
 
     }
