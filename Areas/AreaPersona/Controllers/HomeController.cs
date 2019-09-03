@@ -1,6 +1,7 @@
 using AutoMapper;
 using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Core.Model;
+using esercizioUnikey.Interfaccia;
 using esercizioUnikey.Repository.Interfaccia;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,8 +12,10 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
     {
         private readonly IHomeRepository _homeRepository;
         private readonly IMapper _mapper;
-        public HomeController(IHomeRepository homeRepository, IMapper mapper)
+        private readonly IUnitOfWork _unitOfWork;
+        public HomeController(IHomeRepository homeRepository, IMapper mapper, IUnitOfWork unitOfWork)
         {
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _homeRepository = homeRepository;
         }
@@ -24,11 +27,20 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
         }
 
         [HttpPost]
-        public void EditPersona([FromForm] PersonaResource personaResource)
+        public IActionResult EditPersona([FromForm] PersonaResource personaResource)
         {
-            _homeRepository
+            var persona = _homeRepository.GetPersona(personaResource.Id);
+
+            _mapper.Map<PersonaResource, Persona>(personaResource, persona);
+
+            _unitOfWork.CompleteAsync();
+
+            return RedirectToAction("Index", "Home", new { area = "AreaPersona", id = personaResource.Id });
 
         }
-
+        public IActionResult CreateOrder([FromRoute] int Id)
+        {
+            return View();
+        }
     }
 }

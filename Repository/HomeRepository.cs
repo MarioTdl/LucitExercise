@@ -1,9 +1,11 @@
-using System;
+
 using System.Linq;
+using AutoMapper;
 using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Controllers.Resource;
 using esercizioUnikey.Core;
 using esercizioUnikey.Core.Model;
+using esercizioUnikey.Interfaccia;
 using esercizioUnikey.Repository.Interfaccia;
 
 namespace esercizioUnikey.Repository
@@ -11,9 +13,13 @@ namespace esercizioUnikey.Repository
     public class HomeRepository : IHomeRepository
     {
         private readonly DbContextUnikey _context;
-        public HomeRepository(DbContextUnikey context)
+        private readonly IMapper _mapper;
+      
+        public HomeRepository(DbContextUnikey context, IMapper mapper)
         {
+           
             _context = context;
+            _mapper = mapper;
         }
 
         public KeyValueResource RedirectToArea(string email, string password)
@@ -33,6 +39,8 @@ namespace esercizioUnikey.Repository
             var personaDb = _context.Persone.Find(id);
             return personaDb;
         }
+        
+
 
     }
 }

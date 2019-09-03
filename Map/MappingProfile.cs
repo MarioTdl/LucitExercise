@@ -15,8 +15,7 @@ namespace esercizioUnikey.Map
             CreateMap<Persona, PersonaResource>();
 
             //RESOURCE SU ENTITA
-            CreateMap<PersonaResource, Persona>()
-            .ForMember(v => v.Id, opt => opt.Ignore());
+            CreateMap<PersonaResource, Persona>().ForMember(x => x.Id, opt => opt.Ignore());
         }
     }
 }

@@ -43,5 +43,6 @@ namespace esercizioUnikey.Controllers
             return RedirectToRoute("areaRoute", new { area = "AreaAzienda", id = areaRitorno.id });
 
         }
+
     }
 }

@@ -7,6 +7,10 @@
 <div class="container">
 <form asp-action="EditPersona" asp-controller="Home" asp-area="AreaPersona" method="post" asp-route-model="@Model">
 	<div class="row">
+        <input class="form-control" asp-for="@Model.Id" required type="hidden" value="@Model.Id">
+          <input class="form-control" asp-for="@Model.Password" required type="hidden" value="@Model.Password">
+         <input class="form-control" asp-for="@Model.Profile" required type="hidden" value="@Model.Profile">
+
       <div class="col-md-9 personal-info">        
           <div class="form-group">
             <label class="col-lg-3 control-label">Nome</label>
@@ -35,7 +39,7 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-             <button type="submit" class="btn btn-primary btn-block btn-large">Save Changes</button>
+             <button type="submit" class="btn btn-primary btn-block btn-large" >Save Changes</button>
               <span></span>
             </div>
           </div>
@@ -43,3 +47,11 @@
     </div>
 </form>
 </div>
+<form asp-controller="Home" asp-area="AreaPersona" asp-action="CreateOrder" asp-route-id="@Model.Id">
+  <div class="form-group"  >
+       <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Crea Ordine</button>
+        </div>
+  </div>
+</form>

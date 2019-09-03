@@ -1,3 +1,4 @@
+using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Controllers.Resource;
 using esercizioUnikey.Core.Model;
 
