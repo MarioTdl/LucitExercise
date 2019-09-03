@@ -1,1 +1,45 @@
+@model esercizioUnikey.Areas.AreaPersona.Controllers.Resource.PersonaResource
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
 <h1>Benvenuto Persona</h1>
+<div class="container">
+<form asp-action="EditPersona" asp-controller="Home" asp-area="AreaPersona" method="post" asp-route-model="@Model">
+	<div class="row">
+      <div class="col-md-9 personal-info">        
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Nome</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Name" required type="text" value="@Model.Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Email" required type="text" value="@Model.Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Company:</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Azienda" readonly="@(true)" type="text" value="@Model.Azienda">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Indirizzo</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Indirizzo" type="text" value="@Model.Indirizzo">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+             <button type="submit" class="btn btn-primary btn-block btn-large">Save Changes</button>
+              <span></span>
+            </div>
+          </div>
+      </div>
+    </div>
+</form>
+</div>

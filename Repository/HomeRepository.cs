@@ -1,7 +1,9 @@
 using System;
 using System.Linq;
+using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Controllers.Resource;
 using esercizioUnikey.Core;
+using esercizioUnikey.Core.Model;
 using esercizioUnikey.Repository.Interfaccia;
 
 namespace esercizioUnikey.Repository
@@ -24,6 +26,12 @@ namespace esercizioUnikey.Repository
                 ritorno = new KeyValueResource { id = _context.Aziende.Where(x => x.Email == email && x.Password == password).FirstOrDefault().Id, areaRitorno = "Azienda" };
 
             return ritorno;
+        }
+
+        public Persona GetPersona(int id)
+        {
+            var personaDb = _context.Persone.Find(id);
+            return personaDb;
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using esercizioUnikey.Core;
+﻿using AutoMapper;
+using esercizioUnikey.Core;
 using esercizioUnikey.Interfaccia;
 using esercizioUnikey.Repository;
 using esercizioUnikey.Repository.Interfaccia;
@@ -27,6 +28,7 @@ namespace esercizioUnikey
         {
             services.AddScoped<IUnitOfWork, UOW>();
             services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddAutoMapper(typeof(Startup));
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -35,6 +37,7 @@ namespace esercizioUnikey
             });
 
             services.AddDbContext<DbContextUnikey>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -61,7 +64,7 @@ namespace esercizioUnikey
                 routes.MapRoute(
                     name: "areaRoute",
                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-               
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
