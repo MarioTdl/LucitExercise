@@ -2996,13 +2996,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
+      "FilePath": "Areas\\AreaPersona\\Views\\Home\\CreateOrder.cshtml",
+      "TargetPath": "Areas\\AreaPersona\\Views\\Home\\CreateOrder.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Areas\\AreaPersona\\Views\\Home\\CreateOrde.cshtml",
-      "TargetPath": "Areas\\AreaPersona\\Views\\Home\\CreateOrde.cshtml",
+      "FilePath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Areas\\AreaPersona\\Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

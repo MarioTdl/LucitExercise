@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
@@ -40,7 +41,11 @@ namespace esercizioUnikey.Repository
             return personaDb;
         }
         
-
+        public IEnumerable<Prodotto> GetProdotti()
+        {
+            var prodotti = _context.Prodotti.ToList();
+            return prodotti;
+        }
 
     }
 }

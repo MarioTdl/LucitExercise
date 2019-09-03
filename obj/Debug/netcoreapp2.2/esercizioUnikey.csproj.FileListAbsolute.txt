@@ -30,4 +30,4 @@ C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.pdb
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.csproj.CopyComplete
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaAzienda\Views\Home\Index.g.cshtml.cs
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\Index.g.cshtml.cs
-C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\CreateOrde.g.cshtml.cs
+C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\CreateOrder.g.cshtml.cs

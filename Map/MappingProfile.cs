@@ -13,6 +13,10 @@ namespace esercizioUnikey.Map
         {
             //ENTITA SU RESOURCE
             CreateMap<Persona, PersonaResource>();
+            CreateMap<Prodotto, CreateOrderResource>()
+            .ForMember(x => x.Nome, opt => opt.MapFrom(m => m.Nome))
+            .ForMember(x => x.Prezzo, opt => opt.MapFrom(m => m.Prezzo));
+
 
             //RESOURCE SU ENTITA
             CreateMap<PersonaResource, Persona>().ForMember(x => x.Id, opt => opt.Ignore());

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using AutoMapper;
 using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Core.Model;
@@ -40,7 +41,18 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
         }
         public IActionResult CreateOrder([FromRoute] int Id)
         {
-            return View();
+            IEnumerable<Prodotto> prodotti = _homeRepository.GetProdotti();
+            List<CreateOrderResource> orderResource = new List<CreateOrderResource>();
+            foreach (var prodotto in prodotti)
+            {
+                orderResource.Add(_mapper.Map<Prodotto, CreateOrderResource>(prodotto));
+
+            }
+            foreach (var order in orderResource)
+            {
+                order.IdCliente = Id;
+            }
+            return View(orderResource);
         }
     }
 }

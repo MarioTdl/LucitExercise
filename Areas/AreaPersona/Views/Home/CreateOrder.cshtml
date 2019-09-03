@@ -1,0 +1,16 @@
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<esercizioUnikey.Areas.AreaPersona.Controllers.Resource.CreateOrderResource>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<ul>
+     @foreach (var item in Model)
+        {
+      <li>
+      <input type="checkbox"  asp-for="@item.Selected" value="@item.Selected" checked="@item.Selected" />
+      <label for="@item.Nome">@item.Nome</label>
+      <label for="@item.Prezzo">@item.Prezzo €</label>
+    </li>
+            }
+</ul>
+
+  <button type="submit" name="action">Aggiungi ordine</button>
+
