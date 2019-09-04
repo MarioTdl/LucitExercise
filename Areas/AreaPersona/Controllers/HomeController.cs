@@ -41,6 +41,7 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
         }
         public IActionResult CreateOrder([FromRoute] int Id)
         {
+            int i = 0;
             IEnumerable<Prodotto> prodotti = _homeRepository.GetProdotti();
             List<CreateOrderResource> orderResource = new List<CreateOrderResource>();
             foreach (var prodotto in prodotti)
@@ -50,12 +51,14 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
             }
             foreach (var order in orderResource)
             {
+                order.Id = i;
                 order.IdCliente = Id;
+                i++;
             }
             return View(orderResource);
         }
         [HttpPost]
-        public void CreateOrder([FromForm] IEnumerable<CreateOrderResource> prodotti)
+        public void CreateOrder(List<CreateOrderResource> prodotti)
         {
             var a = "";
         }

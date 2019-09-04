@@ -1,43 +1,30 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model IEnumerable<esercizioUnikey.Areas.AreaPersona.Controllers.Resource.CreateOrderResource>
+@model List<esercizioUnikey.Areas.AreaPersona.Controllers.Resource.CreateOrderResource>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
 <h1>SELEZIONA I PRODOTTI DA AGGIUNGERE ALL'ORDINE</h1>  
- 
-<!-- Table  -->
-<form asp-action="CreateOrder" asp-controller="Home" asp-area="AreaPersona" method="post" asp-route-model="@Model">
-<table class="table table-bordered">
-  <!-- Table head -->
-  <thead>
-    <tr>
-      <th>Seleziona</th>
-      <th>Descrizione</th>
-      <th>Prezzo</th>
-    </tr>
-  </thead>
-  <!-- Table head -->
 
-  <!-- Table body -->
-  <tbody>
- @foreach (var item in Model){
-    <tr>
-      <th scope="row">
-        <!-- Default unchecked -->
-        <div class="custom-control custom-checkbox">
-           <input type="checkbox" class="custom-control-input" id="tableDefaultCheck"  asp-for="@item.Selected" value="@item.Selected" checked="@item.Selected" />
-           <label class="custom-control-label" for="tableDefaultCheck">Vuoi aggiungere</label>
-        </div>
-      </th>
-      <td><label for="@item.Nome">@item.Nome</label></td>
-      <td><label for="@item.Prezzo">@item.Prezzo € </label></td>
-    </tr>
-      }
-  </tbody>
-  <!-- Table body -->
-</table>
-<!-- Table  -->
- <button type="submit" >Aggiungi ordine</button>
-     </form>
+   <table>
+        @using (@Html.BeginForm("CreateOrder", "Home", FormMethod.Post))
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>Product Name:</td>
+                    <td>@Html.TextBoxFor(model => Model[i].Nome)</td>
+                </tr>
+                <tr>
+                    <td>Product Price:</td>
+                    <td>@Html.TextBoxFor(model => Model[i].Prezzo)</td>
+                </tr>
+                <tr>
+                    <td>Product Selziona</td>
+                    <td>@Html.CheckBoxFor(model => Model[i].Selected)</td>
+                </tr>        
+            }
+            <td><input type="submit" value="Edit This Whole Row"></td>
+        }
+    </table>
