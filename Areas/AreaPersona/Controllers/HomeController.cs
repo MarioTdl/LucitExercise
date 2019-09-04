@@ -54,5 +54,10 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
             }
             return View(orderResource);
         }
+        [HttpPost]
+        public void CreateOrder([FromForm] IEnumerable<CreateOrderResource> prodotti)
+        {
+            var a = "";
+        }
     }
 }

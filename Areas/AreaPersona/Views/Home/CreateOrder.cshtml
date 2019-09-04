@@ -1,16 +1,43 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IEnumerable<esercizioUnikey.Areas.AreaPersona.Controllers.Resource.CreateOrderResource>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<ul>
-     @foreach (var item in Model)
-        {
-      <li>
-      <input type="checkbox"  asp-for="@item.Selected" value="@item.Selected" checked="@item.Selected" />
-      <label for="@item.Nome">@item.Nome</label>
-      <label for="@item.Prezzo">@item.Prezzo €</label>
-    </li>
-            }
-</ul>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 
-  <button type="submit" name="action">Aggiungi ordine</button>
+<h1>SELEZIONA I PRODOTTI DA AGGIUNGERE ALL'ORDINE</h1>  
+ 
+<!-- Table  -->
+<form asp-action="CreateOrder" asp-controller="Home" asp-area="AreaPersona" method="post" asp-route-model="@Model">
+<table class="table table-bordered">
+  <!-- Table head -->
+  <thead>
+    <tr>
+      <th>Seleziona</th>
+      <th>Descrizione</th>
+      <th>Prezzo</th>
+    </tr>
+  </thead>
+  <!-- Table head -->
 
+  <!-- Table body -->
+  <tbody>
+ @foreach (var item in Model){
+    <tr>
+      <th scope="row">
+        <!-- Default unchecked -->
+        <div class="custom-control custom-checkbox">
+           <input type="checkbox" class="custom-control-input" id="tableDefaultCheck"  asp-for="@item.Selected" value="@item.Selected" checked="@item.Selected" />
+           <label class="custom-control-label" for="tableDefaultCheck">Vuoi aggiungere</label>
+        </div>
+      </th>
+      <td><label for="@item.Nome">@item.Nome</label></td>
+      <td><label for="@item.Prezzo">@item.Prezzo € </label></td>
+    </tr>
+      }
+  </tbody>
+  <!-- Table body -->
+</table>
+<!-- Table  -->
+ <button type="submit" >Aggiungi ordine</button>
+     </form>
