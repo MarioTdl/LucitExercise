@@ -31,3 +31,4 @@ C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\esercizioUnikey.csproj.Co
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaAzienda\Views\Home\Index.g.cshtml.cs
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\Index.g.cshtml.cs
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\CreateOrder.g.cshtml.cs
+c:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\GetOrder.g.cshtml.cs

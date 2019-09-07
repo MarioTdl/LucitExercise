@@ -10,5 +10,8 @@ namespace esercizioUnikey.Repository.Interfaccia
         Persona GetPersona(int id);
         IEnumerable<Prodotto> GetProdotti();
         KeyValueResource RedirectToArea(string email, string password);
+        void CreateOrder(List<CreateOrderResource> prodotti);
+        IEnumerable<int> GetOrder(int id);
+
     }
 }

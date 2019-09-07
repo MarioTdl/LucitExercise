@@ -1,0 +1,26 @@
+@model List<int>;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
+
+<h1>Lista degli Ordini</h1> 
+
+<table>
+        @using (@Html.BeginForm("ViewOrder", "Home", FormMethod.Post))
+        {
+            //for (int i = 0; i < Model.Count; i++)
+
+            // quell giusta e quella sopra, perche mi sono scordato
+            //di fare la tabella di mezzo tra prodotti e ordini
+            for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>Ordine n:</td>
+                    <td>@Html.TextBoxFor(m => Model[i] )</td>
+                </tr>
+                <td><a asp-action="ViewOrder" asp-controller="Home"  asp-area="AreaPersona"asp-route-id="@Model[i]">Visualizza Ordine</a><br/></td>
+                
+            }
+            
+        }
+    </table>
+
+

@@ -26,7 +26,6 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
 
             return View(_mapper.Map<Persona, PersonaResource>(personaDb));
         }
-
         [HttpPost]
         public IActionResult EditPersona([FromForm] PersonaResource personaResource)
         {
@@ -58,9 +57,24 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
             return View(orderResource);
         }
         [HttpPost]
-        public void CreateOrder(List<CreateOrderResource> prodotti)
+        public IActionResult CreateOrder(List<CreateOrderResource> prodotti)
         {
-            var a = "";
+            _homeRepository.CreateOrder(prodotti);
+            _unitOfWork.CompleteAsync();
+            return RedirectToAction("Index", "Home", new { area = "AreaPersona", id = prodotti[0].IdCliente });
+
+        }
+        public IActionResult GetOrder([FromRoute] int id)
+        {
+            List<int> ordiniId = (List<int>)_homeRepository.GetOrder(id);
+
+            return View(ordiniId);
+        }
+        public IActionResult ViewOrder([FromRoute]int id)
+        {
+            List<int> ordiniId = (List<int>)_homeRepository.GetOrder(id);
+
+            return View(ordiniId);
         }
     }
 }

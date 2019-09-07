@@ -55,3 +55,11 @@
         </div>
   </div>
 </form>
+<form asp-controller="Home" method="get" asp-area="AreaPersona" asp-action="GetOrder" asp-route-id="@Model.Id">
+  <div class="form-group"  >
+       <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Vedi gli Ordini</button>
+        </div>
+  </div>
+</form>

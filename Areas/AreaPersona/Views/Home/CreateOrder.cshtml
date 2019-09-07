@@ -10,21 +10,32 @@
    <table>
         @using (@Html.BeginForm("CreateOrder", "Home", FormMethod.Post))
         {
-            for (int i = 0; i < Model.Count; i++)
+            //for (int i = 0; i < Model.Count; i++)
+
+            // quell giusta e quella sopra, perche mi sono scordato
+            //di fare la tabella di mezzo tra prodotti e ordini
+            for (int i = 0; i < 3; i++)
             {
                 <tr>
-                    <td>Product Name:</td>
+                    <td>@Html.TextBoxFor(m => Model[i].IdCliente, new { style = "display: none;" })</td>
+                </tr>
+
+                <tr>
+                    <td>Nome:</td>
                     <td>@Html.TextBoxFor(model => Model[i].Nome)</td>
                 </tr>
                 <tr>
-                    <td>Product Price:</td>
+                    <td>Prezzo:</td>
                     <td>@Html.TextBoxFor(model => Model[i].Prezzo)</td>
                 </tr>
                 <tr>
-                    <td>Product Selziona</td>
-                    <td>@Html.CheckBoxFor(model => Model[i].Selected)</td>
-                </tr>        
+                    <td>Selezione per Aggiungere <br/>
+                <br/>   </td>
+                    <td>@Html.CheckBoxFor(model => Model[i].Selected) <br/>
+                <br/>   </td>
+                </tr>  
+                   
             }
-            <td><input type="submit" value="Edit This Whole Row"></td>
+            <td><input type="submit" value="Crea Ordine"></td>
         }
     </table>

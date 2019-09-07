@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -15,10 +16,10 @@ namespace esercizioUnikey.Repository
     {
         private readonly DbContextUnikey _context;
         private readonly IMapper _mapper;
-      
+
         public HomeRepository(DbContextUnikey context, IMapper mapper)
         {
-           
+
             _context = context;
             _mapper = mapper;
         }
@@ -40,12 +41,30 @@ namespace esercizioUnikey.Repository
             var personaDb = _context.Persone.Find(id);
             return personaDb;
         }
-        
+
         public IEnumerable<Prodotto> GetProdotti()
         {
             var prodotti = _context.Prodotti.ToList();
             return prodotti;
         }
 
+        public void CreateOrder(List<CreateOrderResource> prodotti)
+        {
+            var listaProdottiOrdine = prodotti.Where(x => x.Selected == true).ToList();
+            Ordine ordineAdd = new Ordine();
+            ordineAdd.DataCreazione = DateTime.Now;
+            ordineAdd.PersonaId = listaProdottiOrdine[0].IdCliente;
+            foreach (var prodotto in listaProdottiOrdine)
+            {
+                ordineAdd.Prodotti.Add(_mapper.Map<CreateOrderResource, Prodotto>(prodotto));
+            }
+
+            _context.Ordini.Add(ordineAdd);
+
+        }
+        public IEnumerable<int> GetOrder(int id)
+        {
+            return _context.Ordini.Where(x => x.PersonaId == id).Select(x => x.Id).ToList();
+        }
     }
 }
