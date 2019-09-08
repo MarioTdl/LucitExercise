@@ -9,6 +9,7 @@ using esercizioUnikey.Core;
 using esercizioUnikey.Core.Model;
 using esercizioUnikey.Interfaccia;
 using esercizioUnikey.Repository.Interfaccia;
+using Microsoft.EntityFrameworkCore;
 
 namespace esercizioUnikey.Repository
 {
@@ -65,6 +66,14 @@ namespace esercizioUnikey.Repository
         public IEnumerable<int> GetOrder(int id)
         {
             return _context.Ordini.Where(x => x.PersonaId == id).Select(x => x.Id).ToList();
+        }
+
+        public Ordine GetOrdineView(int id)
+        {
+            var a = _context.Ordini.Where(x => x.Id == id).Include(x => x.Prodotti).FirstOrDefault();
+
+            return a;
+
         }
     }
 }

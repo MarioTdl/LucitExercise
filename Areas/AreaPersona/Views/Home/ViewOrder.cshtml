@@ -1,0 +1,30 @@
+@model esercizioUnikey.Areas.AreaPersona.Controllers.Resource.OrdineResourceView
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers 
+
+<h1>Ordine Visualizzato</h1>
+
+
+  <div class="form-group">
+    <label for="@Model.DataCreazione">Data Creazione</label>
+    <input class="form-control" readonly value="@Model.DataCreazione">
+  </div>
+  <br/>
+  <h1>Prodotti</h1>
+  <br/>
+  @foreach (var p in Model.Prodotti)
+  {
+      
+      <div class="form-group">
+    <label for="@p.Nome">Nome:</label>
+    <input readonly class="form-control"value="@p.Nome">
+  </div>
+    <div class="form-group">
+    <label for="@p.Prezzo">Prezzo:</label>
+    <input readonly class="form-control"value="@p.Prezzo">
+  </div>
+  <br/><br/>
+  }
+  
+  <form asp-action="DeleteOrder" asp-controller="Home" asp-area="AreaPersona" method="post" asp-route-model="@Model.Id">
+
+  </form>

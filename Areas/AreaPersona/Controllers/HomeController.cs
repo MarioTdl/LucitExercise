@@ -72,9 +72,16 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
         }
         public IActionResult ViewOrder([FromRoute]int id)
         {
-            List<int> ordiniId = (List<int>)_homeRepository.GetOrder(id);
+            var ordineResult = _homeRepository.GetOrdineView(id);
 
-            return View(ordiniId);
+            var ordineView = _mapper.Map<Ordine, OrdineResourceView>(ordineResult);
+
+            return View(ordineView);
         }
+        public IActionResult DeleteOrder([FromRoute]int id)
+        {
+            _homeRepository.DeleteOrder(id)
+            //prendere id persona dall'ordine e reindirazzare agl ordini lista
+         }
     }
 }

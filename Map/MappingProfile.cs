@@ -19,6 +19,16 @@ namespace esercizioUnikey.Map
             .ForMember(x => x.Prezzo, opt => opt.MapFrom(m => m.Prezzo));
             CreateMap<Ordine, OrdineResource>()
             .ForMember(x => x.Id, opt => opt.MapFrom(id => id.Id));
+            CreateMap<Ordine, OrdineResourceView>()
+            .ForMember(v => v.Prodotti, opt => opt.Ignore())
+            .AfterMap((o, ov) =>
+            {
+                foreach (var prodotto in o.Prodotti)
+                {
+                    ov.Prodotti.Add(new ProdottoResource { Nome = prodotto.Nome, Prezzo = prodotto.Prezzo });
+                }
+            }
+            );
 
             //RESOURCE SU ENTITA
             CreateMap<PersonaResource, Persona>().ForMember(x => x.Id, opt => opt.Ignore());
