@@ -12,7 +12,9 @@ namespace esercizioUnikey.Repository.Interfaccia
         KeyValueResource RedirectToArea(string email, string password);
         void CreateOrder(List<CreateOrderResource> prodotti);
         IEnumerable<int> GetOrder(int id);
-        Ordine GetOrdineView(int id) ;
+        Ordine GetOrdineView(int id);
+        int GetIdPersona(int id);
+        void DeleteOrder(int id);
 
     }
 }

@@ -21,6 +21,7 @@ namespace esercizioUnikey.Map
             .ForMember(x => x.Id, opt => opt.MapFrom(id => id.Id));
             CreateMap<Ordine, OrdineResourceView>()
             .ForMember(v => v.Prodotti, opt => opt.Ignore())
+            .ForMember(x => x.IdPersona, opt => opt.MapFrom(x => x.PersonaId))
             .AfterMap((o, ov) =>
             {
                 foreach (var prodotto in o.Prodotti)

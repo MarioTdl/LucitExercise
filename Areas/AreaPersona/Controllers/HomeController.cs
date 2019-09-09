@@ -78,10 +78,13 @@ namespace esercizioUnikey.Areas.AreaPersona.Controllers
 
             return View(ordineView);
         }
+        [HttpPost]
         public IActionResult DeleteOrder([FromRoute]int id)
         {
-            _homeRepository.DeleteOrder(id)
-            //prendere id persona dall'ordine e reindirazzare agl ordini lista
-         }
+            var idPersona = _homeRepository.GetIdPersona(id);
+            _homeRepository.DeleteOrder(id);
+            _unitOfWork.CompleteAsync();
+            return RedirectToAction("Index", "Home", new { area = "AreaPersona", id = idPersona });
+        }
     }
 }

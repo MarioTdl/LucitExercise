@@ -75,5 +75,11 @@ namespace esercizioUnikey.Repository
             return a;
 
         }
+        public int GetIdPersona(int id)
+        {
+            var ordinePersona = _context.Ordini.Where(x => x.Id == id).Include(x => x.Persona).FirstOrDefault();
+            return ordinePersona.Persona.Id;
+        }
+        public void DeleteOrder(int id) => _context.Ordini.Remove(_context.Ordini.Find(id));
     }
 }
