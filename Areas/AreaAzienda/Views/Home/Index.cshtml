@@ -1,1 +1,56 @@
+@model esercizioUnikey.Areas.AreaAzienda.Resource.CompanyResource
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 <H1>Benvenuto Azienda</H1>
+
+<div class="container">
+<form >
+	<div class="row">
+        <input class="form-control" asp-for="@Model.Id" required type="hidden" value="@Model.Id">
+          <input class="form-control" asp-for="@Model.Password" required type="hidden" value="@Model.Password">
+  
+      <div class="col-md-9 personal-info">        
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Nome</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Name" required type="text" value="@Model.Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Email" required type="text" value="@Model.Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Password:</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.Password" readonly="@(true)" type="text" value="@Model.Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Tech Type</label>
+            <div class="col-lg-8">
+              <input class="form-control" asp-for="@Model.TechType" type="text" value="@Model.TechType">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+             <button type="submit" class="btn btn-primary btn-block btn-large" >Save Changes</button>
+              <span></span>
+            </div>
+          </div>
+      </div>
+    </div>
+</form>
+</div>
+<form>
+  <div class="form-group"  >
+       <label class="col-md-3 control-label"></label>
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary btn-block btn-large">Aggiungi Employee</button>
+        </div>
+  </div>
+</form>

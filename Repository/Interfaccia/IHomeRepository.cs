@@ -15,6 +15,6 @@ namespace esercizioUnikey.Repository.Interfaccia
         Ordine GetOrdineView(int id);
         int GetIdPersona(int id);
         void DeleteOrder(int id);
-
+        Company GetCompany(int id);
     }
 }

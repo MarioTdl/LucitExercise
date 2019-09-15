@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AutoMapper;
+using esercizioUnikey.Areas.AreaAzienda.Resource;
 using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Core;
 using esercizioUnikey.Core.Model;
@@ -14,6 +15,7 @@ namespace esercizioUnikey.Map
         {
             //ENTITA SU RESOURCE
             CreateMap<Persona, PersonaResource>();
+            CreateMap<Company, CompanyResource>();
             CreateMap<Prodotto, CreateOrderResource>()
             .ForMember(x => x.Nome, opt => opt.MapFrom(m => m.Nome))
             .ForMember(x => x.Prezzo, opt => opt.MapFrom(m => m.Prezzo));

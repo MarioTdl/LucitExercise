@@ -81,5 +81,10 @@ namespace esercizioUnikey.Repository
             return ordinePersona.Persona.Id;
         }
         public void DeleteOrder(int id) => _context.Ordini.Remove(_context.Ordini.Find(id));
+        public Company GetCompany(int id)
+        {
+            var aziendaDb = _context.Aziende.Find(id);
+            return aziendaDb;
+        }
     }
 }
