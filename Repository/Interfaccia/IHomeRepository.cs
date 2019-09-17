@@ -17,5 +17,7 @@ namespace esercizioUnikey.Repository.Interfaccia
         void DeleteOrder(int id);
         Company GetCompany(int id);
         void AddDipendente(Dipendente dipendente);
+        IEnumerable<Dipendente> GetDipendenti(int id);
+        void DeleteDipendente(int id);
     }
 }

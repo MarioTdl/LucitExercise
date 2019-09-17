@@ -91,5 +91,15 @@ namespace esercizioUnikey.Repository
         {
             _context.Dipendenti.Add(dipendente);
         }
+
+        public IEnumerable<Dipendente> GetDipendenti(int id)
+        {
+            return _context.Dipendenti.Where(x => x.CompanyId == id);
+        }
+
+        public void DeleteDipendente(int id)
+        {
+            _context.Dipendenti.Remove(_context.Dipendenti.Find(id));
+        }
     }
 }

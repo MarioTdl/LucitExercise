@@ -53,10 +53,23 @@ namespace esercizioUnikey.Areas.AreaAzienda.Controllers
 
             return RedirectToAction("Index", "Home", new { area = "AreaAzienda", id = dipendenteResource.CompanyId });
         }
-        public IActionResult ViewDipendenti()
+        public IActionResult ViewDipendenti([FromRoute] int id)
         {
-            List<DipendenteResource> lista = new List<DipendenteResource>();
-            return View(lista);
+            List<DipendenteResource> listaDipendenti = new List<DipendenteResource>();
+            var dipendenti = _homeRepository.GetDipendenti(id);
+            foreach (var dipendete in dipendenti)
+            {
+                listaDipendenti.Add(_mapper.Map<Dipendente, DipendenteResource>(dipendete));
+            }
+            return View(listaDipendenti);
+        }
+        [HttpPost]
+        public IActionResult Delete( DipendenteResource dipendente)
+        {
+            int idAzienda = dipendente.CompanyId;
+            _homeRepository.DeleteDipendente(dipendente.Id);
+            _unitOfWork.CompleteAsync();
+            return RedirectToAction("ViewDipendenti", "Home", new { area = "AreaAzienda", id = idAzienda });
         }
 
     }

@@ -24,11 +24,19 @@
     <tbody>  
      @foreach (var dipendente in Model)
      {
+       <form asp-controller="Home" asp-area="AreaAzienda" method="post" asp-action="Delete" asp-route-model="@dipendente">
     <tr>
-    <td>@dipendente.DataAssunzione</td>
+      <input class="form-control" asp-for="@dipendente.Id" required type="hidden" value="@dipendente.Id">
+      <input class="form-control" asp-for="@dipendente.DataAssunzione" required type="hidden" value="@dipendente.DataAssunzione">
+      <input class="form-control" asp-for="@dipendente.CompanyId" required type="hidden" value="@dipendente.CompanyId">
+       <input class="form-control" asp-for="@dipendente.Name" required type="hidden" value="@dipendente.Name">
+    <td >@dipendente.DataAssunzione</td>
     <td>@dipendente.Name</td>
-    <td><button asp-controller="Home" asp-area="AreaAzienda" method="post" asp-action="Delete" asp-route-id="@dipendente.Id" class="btn btn-danger btn-xs" data-title="Delete"  ><span class="glyphicon glyphicon-trash"></span></button></td>
+    <td>
+    <button  type="submit" class="btn btn-danger btn-xs" data-title="Delete"  ><span class="glyphicon glyphicon-trash"></span></button>
+   </td>
     </tr>
+     </form>
     }
     </tbody>
       </table>
