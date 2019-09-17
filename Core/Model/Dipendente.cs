@@ -7,6 +7,7 @@ namespace esercizioUnikey.Core.Model
     [Table("Dipendente")]
     public class Dipendente
     {
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public DateTime DataAssunzione { get; set; }
         [Required]

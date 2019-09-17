@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using AutoMapper;
+using esercizioUnikey.Areas.AreaAzienda.Controllers.Resource;
 using esercizioUnikey.Areas.AreaAzienda.Resource;
 using esercizioUnikey.Areas.AreaPersona.Controllers.Resource;
 using esercizioUnikey.Core;
@@ -14,6 +14,7 @@ namespace esercizioUnikey.Map
         public MappingProfile()
         {
             //ENTITA SU RESOURCE
+            CreateMap<Dipendente, DipendenteResource>();
             CreateMap<Persona, PersonaResource>();
             CreateMap<Company, CompanyResource>();
             CreateMap<Prodotto, CreateOrderResource>()
@@ -35,6 +36,7 @@ namespace esercizioUnikey.Map
 
             //RESOURCE SU ENTITA
             CreateMap<CompanyResource, Company>().ForMember(x => x.Id, opt => opt.Ignore());
+            CreateMap<DipendenteResource, Dipendente>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<PersonaResource, Persona>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<CreateOrderResource, Prodotto>()
           .ForMember(x => x.Nome, opt => opt.MapFrom(m => m.Nome))

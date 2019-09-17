@@ -1,4 +1,5 @@
 using AutoMapper;
+using esercizioUnikey.Areas.AreaAzienda.Controllers.Resource;
 using esercizioUnikey.Areas.AreaAzienda.Resource;
 using esercizioUnikey.Core.Model;
 using esercizioUnikey.Interfaccia;
@@ -36,8 +37,19 @@ namespace esercizioUnikey.Areas.AreaAzienda.Controllers
 
             return RedirectToAction("Index", "Home", new { area = "AreaAzienda", id = companyResource.Id });
         }
+        public IActionResult CreateEmployeer([FromRoute] int id)
+        {
+            return View(new DipendenteResource { Id = id });
+        }
+        [HttpPost]
+        public IActionResult CreateEmployeer(DipendenteResource dipendenteResource)
+        {
+            var dipendente = _mapper.Map<DipendenteResource, Dipendente>(dipendenteResource);
+            _homeRepository.AddDipendente(dipendente);
+            _unitOfWork.CompleteAsync();
 
-
+            return RedirectToAction("Index", "Home", new { area = "AreaAzienda", id = dipendenteResource.CompanyId });
+        }
 
     }
 }

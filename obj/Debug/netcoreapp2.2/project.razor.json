@@ -2996,6 +2996,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Areas\\AreaAzienda\\Views\\Home\\CreateEmployeer.cshtml",
+      "TargetPath": "Areas\\AreaAzienda\\Views\\Home\\CreateEmployeer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"

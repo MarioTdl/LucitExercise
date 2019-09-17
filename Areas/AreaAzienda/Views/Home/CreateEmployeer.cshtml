@@ -1,0 +1,16 @@
+@model esercizioUnikey.Areas.AreaAzienda.Controllers.Resource.DipendenteResource
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+@using (@Html.BeginForm("CreateEmployeer", "Home", FormMethod.Post))
+{
+  <div class="form-group">
+      <input hidden asp-for="@Model.CompanyId" value="@Model.Id">
+    @Html.LabelFor(m=> m.DataAssunzione)
+    <input class="form-control" asp-for="@Model.DataAssunzione" value="" type="date">
+  </div>
+  <div class="form-group">
+     @Html.LabelFor(m=> m.Name)
+    <input type="text" class="form-control" asp-for="@Model.Name" value="" >
+  </div>
+  <button type="submit" class="btn btn-primary">Crea</button>
+}

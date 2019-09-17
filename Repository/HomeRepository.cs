@@ -86,5 +86,10 @@ namespace esercizioUnikey.Repository
             var aziendaDb = _context.Aziende.Find(id);
             return aziendaDb;
         }
+
+        public void AddDipendente(Dipendente dipendente)
+        {
+            _context.Dipendenti.Add(dipendente);
+        }
     }
 }
