@@ -34,3 +34,4 @@ C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\V
 c:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\GetOrder.g.cshtml.cs
 c:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaPersona\Views\Home\ViewOrder.g.cshtml.cs
 C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaAzienda\Views\Home\CreateEmployeer.g.cshtml.cs
+C:\Users\mario\esercizioUnikey\obj\Debug\netcoreapp2.2\Razor\Areas\AreaAzienda\Views\Home\ViewDipendenti.g.cshtml.cs

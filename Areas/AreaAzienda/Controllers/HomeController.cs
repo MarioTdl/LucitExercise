@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading;
 using AutoMapper;
 using esercizioUnikey.Areas.AreaAzienda.Controllers.Resource;
@@ -51,6 +52,11 @@ namespace esercizioUnikey.Areas.AreaAzienda.Controllers
             _unitOfWork.CompleteAsync();
 
             return RedirectToAction("Index", "Home", new { area = "AreaAzienda", id = dipendenteResource.CompanyId });
+        }
+        public IActionResult ViewDipendenti()
+        {
+            List<DipendenteResource> lista = new List<DipendenteResource>();
+            return View(lista);
         }
 
     }

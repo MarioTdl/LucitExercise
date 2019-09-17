@@ -3011,6 +3011,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Areas\\AreaAzienda\\Views\\Home\\ViewDipendenti.cshtml",
+      "TargetPath": "Areas\\AreaAzienda\\Views\\Home\\ViewDipendenti.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Areas\\AreaPersona\\Views\\Home\\CreateOrder.cshtml",
       "TargetPath": "Areas\\AreaPersona\\Views\\Home\\CreateOrder.cshtml",
       "FileKind": "mvc"
