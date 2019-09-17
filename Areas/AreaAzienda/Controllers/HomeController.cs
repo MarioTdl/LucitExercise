@@ -1,3 +1,4 @@
+using System.Threading;
 using AutoMapper;
 using esercizioUnikey.Areas.AreaAzienda.Controllers.Resource;
 using esercizioUnikey.Areas.AreaAzienda.Resource;
@@ -46,6 +47,7 @@ namespace esercizioUnikey.Areas.AreaAzienda.Controllers
         {
             var dipendente = _mapper.Map<DipendenteResource, Dipendente>(dipendenteResource);
             _homeRepository.AddDipendente(dipendente);
+
             _unitOfWork.CompleteAsync();
 
             return RedirectToAction("Index", "Home", new { area = "AreaAzienda", id = dipendenteResource.CompanyId });
