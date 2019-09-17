@@ -25,5 +25,19 @@ namespace esercizioUnikey.Areas.AreaAzienda.Controllers
 
             return View(_mapper.Map<Company, CompanyResource>(aziendaDb));
         }
+
+        public IActionResult EditAzienda([FromForm] CompanyResource companyResource)
+        {
+            var company = _homeRepository.GetCompany(companyResource.Id);
+
+            _mapper.Map<CompanyResource, Company>(companyResource, company);
+
+            _unitOfWork.CompleteAsync();
+
+            return RedirectToAction("Index", "Home", new { area = "AreaAzienda", id = companyResource.Id });
+        }
+
+
+
     }
 }

@@ -34,6 +34,7 @@ namespace esercizioUnikey.Map
             );
 
             //RESOURCE SU ENTITA
+            CreateMap<CompanyResource, Company>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<PersonaResource, Persona>().ForMember(x => x.Id, opt => opt.Ignore());
             CreateMap<CreateOrderResource, Prodotto>()
           .ForMember(x => x.Nome, opt => opt.MapFrom(m => m.Nome))

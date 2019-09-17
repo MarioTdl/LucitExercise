@@ -5,7 +5,7 @@
 <H1>Benvenuto Azienda</H1>
 
 <div class="container">
-<form >
+<form asp-action="EditAzienda" asp-controller="Home" asp-area="AreaAzienda" method="post" asp-route-model="@Model">
 	<div class="row">
         <input class="form-control" asp-for="@Model.Id" required type="hidden" value="@Model.Id">
           <input class="form-control" asp-for="@Model.Password" required type="hidden" value="@Model.Password">
